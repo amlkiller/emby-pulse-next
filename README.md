@@ -281,6 +281,21 @@ environment:
 | `webhook_token` | Webhook 安全校验令牌 |
 | `emby_public_url` | 对外访问 Emby 的公网地址 |
 
+### Webhook 配置
+
+推荐在 Emby Webhook 插件中使用 Header 传递令牌：
+
+| 配置项 | 值 |
+|--------|----|
+| URL | `https://你的域名/api/v1/webhook` |
+| Header | `X-Webhook-Token: 你的 webhook_token` |
+
+如果插件或环境不方便配置 Header，也兼容 URL 参数方式：
+
+```text
+https://你的域名/api/v1/webhook?token=你的 webhook_token
+```
+
 ### 影巢配置（Pro独占）
 
 | 配置项 | 说明 |
